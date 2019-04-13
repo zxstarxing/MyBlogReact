@@ -1,0 +1,12 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "no-var": 1,
+        "no-trailing-spaces": 1
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.MyHearder{
+    display:flex;
+    justify-content: center;
+    align-items:flex-end;
+}
+.MyBlog{
+    color: white;
+    font-size: 30px;
+    width: 200px;
+    text-align:center;
+    cursor: pointer;
+}

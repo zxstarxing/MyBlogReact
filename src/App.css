@@ -1,0 +1,14 @@
+header::before {
+    background: #000 linear-gradient(to left, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    content: "";
+    height: 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.ant-layout-header {
+    height: 64px;
+    line-height: 64px;
+    padding: 0px!important;
+    background: #001529;
+}
