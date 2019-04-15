@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { Layout } from "antd";
 const { Header, Content, Footer } = Layout;
-import "./App.css";
 import { withRouter } from "react-router-dom";
 import MyHeader from "./components/layout/header/MyHeader";
 
@@ -22,6 +21,7 @@ class App extends Component {
               justifyContent: "center",
               alignItems: "stretch"
             }}
+            id="MyBlogHeader"
           >
             <MyHeader />
           </Header>
