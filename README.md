@@ -1,9 +1,13 @@
-# ReactFramework
-## Custorm react famework
-### Useage
+# 我的博客
 
-    npm install
-    npm start
+## 2019-04-17
 
-### Date 2019/03/27
-##### Use antdesgin react react-router and mobx ,use antd as an example
+### 后台栏目功能模块制作，数据库设计
+
+## 2019-04-16
+
+### 前后台页面部分制作
+
+## 2019-04-15
+
+### 框架搭建
