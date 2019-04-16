@@ -1,2 +1,2 @@
-const domainUrl = "http://localhost:3100";
+const domainUrl = "http://localhost:3200";
 export default domainUrl;

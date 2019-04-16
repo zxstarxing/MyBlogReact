@@ -1,9 +1,9 @@
 import mysql from "mysql";
-const database = mysql.createConnection({
+const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "123456",
   database: "myblog"
 });
 
-export default database;
+export default pool;

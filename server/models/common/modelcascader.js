@@ -1,4 +1,4 @@
-class CascaderModel {
+class ModelCascader {
   constructor({ value, label }) {
     this.value = value;
     this.label = label;
@@ -15,4 +15,4 @@ class CascaderModel {
     this.children.push(new CascaderModel({ value, label }.toObject()));
   }
 }
-export default CascaderModel;
+export default ModelCascader;

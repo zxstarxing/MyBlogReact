@@ -13,4 +13,4 @@ app.all("*", function(req, res, next) {
 
 app.use("/menu", MenuRouter);
 
-app.listen(3100, () => console.log("Example app listening on port 3100!"));
+app.listen(3200, () => console.log("Example app listening on port 3200!"));

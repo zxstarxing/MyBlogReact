@@ -28,7 +28,8 @@ const foreground = (
 
 const background = (
   <AdminHome>
-    {AdminRoutes.map(item => {
+    {
+      AdminRoutes.map(item => {
       if (!!item.children && item.children.length > 0) {
         item.children.map(child => {
           return (
