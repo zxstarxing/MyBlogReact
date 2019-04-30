@@ -1,0 +1,13 @@
+.divMarkdown{
+    display: flex;
+    flex-direction: row;
+    align-items:stretch;
+    
+}
+.divMarkdown >.left{
+    width: 50%;
+}
+.divMarkdown>.right{
+    background-color: white;
+    width: 50%;
+}

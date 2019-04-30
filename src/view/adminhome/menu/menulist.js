@@ -23,6 +23,7 @@ export default class MenuList extends Component {
       MenuTreeSelect: [],
       MenuList: [],
       Condition: {
+        Name: "",
         IsStatus: -1,
         ParentGuid: ""
       }
@@ -42,6 +43,14 @@ export default class MenuList extends Component {
       this.setState({ MenuTreeSelect: data });
     });
   }
+
+  handleClickInput = e => {
+    this.setState({
+      Condition: Object.assign({}, this.state.Condition, {
+        Name: e.target.value
+      })
+    });
+  };
   handleClickStatus = e => {
     this.setState({
       Condition: Object.assign({}, this.state.Condition, {
@@ -69,6 +78,9 @@ export default class MenuList extends Component {
         });
       }
     });
+  };
+  handleClickSearch = () => {
+    console.log(this.state.Condition);
   };
   render() {
     let AddButton = (
@@ -124,7 +136,11 @@ export default class MenuList extends Component {
           <Panel header="查询" key="1">
             <Form layout="inline">
               <Form.Item label="栏目名称">
-                <Input placeholder="栏目名称" />
+                <Input
+                  placeholder="栏目名称"
+                  name="Name"
+                  onChange={this.handleClickInput.bind(this)}
+                />
               </Form.Item>
               <Form.Item label="父级栏目">
                 <TreeSelect
@@ -147,7 +163,9 @@ export default class MenuList extends Component {
                 </RadioGroup>
               </Form.Item>
               <Form.Item>
-                <Button type="primary">查询</Button>
+                <Button type="primary" onClick={() => this.handleClickSearch()}>
+                  查询
+                </Button>
               </Form.Item>
             </Form>
           </Panel>

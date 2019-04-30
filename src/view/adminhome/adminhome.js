@@ -42,7 +42,7 @@ class AdminHome extends Component {
           <Header style={{ background: "#fff", padding: 0 }} />
           <Content style={{ margin: "0 16px" }}>{this.props.children}</Content>
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
+            MyBlog ©2019 Created by zhangxing
           </Footer>
         </Layout>
       </Layout>
