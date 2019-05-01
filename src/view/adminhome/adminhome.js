@@ -4,8 +4,10 @@ import { Layout, Menu, Breadcrumb, Icon } from "antd";
 const { Header, Content, Footer, Sider } = Layout;
 import AdminRoutes from "../../routers/adminrouters";
 import { withRouter } from "react-router-dom";
+import { hot } from 'react-hot-loader/root'
 
 @withRouter
+@hot
 class AdminHome extends Component {
   state = {
     collapsed: false,

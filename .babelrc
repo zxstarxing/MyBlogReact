@@ -21,6 +21,7 @@
         "style": "css"
       }
     ],
-    ["@babel/plugin-syntax-dynamic-import"]
+    ["@babel/plugin-syntax-dynamic-import"],
+    ["react-hot-loader/babel"]
   ]
 }

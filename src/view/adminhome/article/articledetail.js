@@ -1,30 +1,61 @@
-import React, { Component } from "react";
-import {
-  Row,
-  Col,
-  message,
-  Card,
-  Form,
-  TreeSelect,
-  Input,
-  Radio,
-  Button
-} from "antd";
-import Remarkable from "remarkable";
 import "./articledetail.css";
+import "highlight.js/styles/atom-one-dark.css";
+import React, { Component } from "react";
+import { Form, Input } from "antd";
+import marked, { Renderer } from "marked";
+import highlightjs from "highlight.js/lib/highlight";
+import javascript from "highlight.js/lib/languages/javascript";
+highlightjs.registerLanguage("javascript", javascript);
+
+const escapeMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+};
+let escapeForHTML = input =>
+  input.replace(/([&<>'"])/g, char => escapeMap[char]);
 const { TextArea } = Input;
-const md = new Remarkable();
-export default class ArticleDetail extends Component {
+class ArticleDetail extends Component {
   constructor(props) {
     super(props);
-    this.mdContent = React.createRef();
-    this.mdTextarea = React.createRef();
+    this.state = {
+      mdContent: "",
+      mdTextarea: ""
+    };
   }
   componentDidMount() {
-    console.log(this.mdTextarea.current);
+    const renderer = new Renderer();
+    renderer.code = (code, language) => {
+      const validLang = !!(language && highlightjs.getLanguage(language));
+      const highlighted = validLang
+        ? highlightjs.highlight(language, code).value
+        : escapeForHTML(code);
+      return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+    };
+    marked.setOptions({
+      renderer: renderer,
+      highlight: function(code) {
+        return highlightjs.highlightAuto(code).value;
+      },
+      langPrefix: "hljs",
+      pedantic: false,
+      gfm: true,
+      tables: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false
+    });
   }
-  handleMarkdownChange() {
-    
+  handleMarkdownChange(e) {
+    let { value } = e.target;
+    this.setState({
+      mdTextarea: value,
+      mdContent: value
+    });
   }
   render() {
     return (
@@ -41,9 +72,15 @@ export default class ArticleDetail extends Component {
               <TextArea
                 rows={12}
                 className="left"
-                onChange={() => this.handleMarkdownChange()}
+                onChange={this.handleMarkdownChange.bind(this)}
+                value={this.state.mdTextarea}
               />
-              <div className="right" />
+              <div
+                className="right"
+                dangerouslySetInnerHTML={{
+                  __html: marked(this.state.mdContent)
+                }}
+              />
             </div>
           </Form.Item>
         </Form>
@@ -51,3 +88,5 @@ export default class ArticleDetail extends Component {
     );
   }
 }
+
+export default ArticleDetail;

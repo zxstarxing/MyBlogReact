@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Layout } from "antd";
+import { hot } from 'react-hot-loader/root'
 const { Header, Content, Footer } = Layout;
 import { withRouter } from "react-router-dom";
 import MyHeader from "./components/layout/header/MyHeader";
 
+@withRouter
+@hot
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,4 +43,4 @@ class App extends Component {
     );
   }
 }
-export default withRouter(App);
+export default App;
